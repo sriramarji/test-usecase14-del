@@ -9,8 +9,13 @@ module "sns" {
 }
 
 module "cloudwatch" {
-  source      = "./modules/cloudwatch"
-  sns_topic_arn = [module.sns.sns_topic_arn]
-  cloudtrail_name  = var.cloudtrail_name
+  source                = "./modules/cloudwatch"
+  sns_topic_arn         = [module.sns.sns_topic_arn]
+  cloudtrail_name       = var.cloudtrail_name
   cloudtrail_bucket_name = var.cloudtrail_bucket_name
+
+  depends_on = [
+    aws_cloudwatch_log_group.cloudtrail,
+    aws_s3_bucket_policy.cloudtrail_bucket_policy
+  ]
 }
