@@ -7,7 +7,7 @@ variable "cloudtrail_bucket_name" {
 variable "cloudwatch_log_group_name" {
   description = "cloudwatch log group name"
   type = string
-  default = "demo-cloudtrail-logs-1997"
+  default = "demo-cloudwatch-logs-1997"
 }
 
 variable "sns_topic_name" {
