@@ -103,10 +103,3 @@ resource "aws_cloudwatch_metric_alarm" "ConsoleLoginSuccessesAlarm" {
   alarm_description   = "Alarm for console login successes"
   alarm_actions       = var.sns_topic_arn
 }
-
-
-output "log_group_arn" {
-  value = aws_cloudwatch_log_group.cloudtrail.arn
-}
-
-##

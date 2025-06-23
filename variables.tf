@@ -1,7 +1,7 @@
 variable "cloudtrail_bucket_name" {
   description = "name of the s3 bucket"
   type = string
-  default = "demo-cloudtrail-logs"
+  default = "demo-cloudtrail"
 }
 
 variable "cloudtrail_log_group_name" {
