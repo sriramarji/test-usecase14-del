@@ -7,7 +7,7 @@ variable "cloudtrail_log_group_name" {
 variable "cloudtrail_name" {
   description = "Name of the cloudtrail"
   type = string
-  default = "demo-multi-region-trail"
+#  default = "demo-multi-region-trail"
 }
 
 variable "cloudtrail_bucket_name" {
