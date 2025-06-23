@@ -13,5 +13,4 @@ module "cloudwatch" {
   sns_topic_arn         = [module.sns.sns_topic_arn]
   cloudtrail_name       = var.cloudtrail_name
   cloudtrail_bucket_name = var.cloudtrail_bucket_name
-
 }

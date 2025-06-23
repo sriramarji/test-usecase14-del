@@ -6,4 +6,3 @@ output "cloudtrail_iam_role_arn" {
 output "log_group_arn" {
   value = aws_cloudwatch_log_group.cloudtrail.arn
 }
-

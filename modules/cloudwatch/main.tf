@@ -15,6 +15,7 @@ resource "aws_cloudtrail" "main" {
 
   depends_on = [
     aws_cloudwatch_log_group.cloudtrail,
+    aws_iam_role_policy.cloudtrail_policy
     #aws_s3_bucket_policy.cloudtrail_bucket_policy
   ]
 }
