@@ -42,7 +42,7 @@ resource "aws_s3_bucket" "cloudtrail_bucket" {
 data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket_policy" "cloudtrail_bucket_policy" {
-  bucket = "bayer-demo-cloudtrail-logs"
+  bucket = "demo-cloudtrail-latest-1997"
 
   policy = jsonencode({
     Version = "2012-10-17"
