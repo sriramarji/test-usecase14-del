@@ -54,7 +54,7 @@ resource "aws_iam_role_policy" "cloudtrail_policy" {
   })
 }
 
-resource "aws_cloudwatch_log_metric_filter" "ConsoleLoginFailures" {
+/*resource "aws_cloudwatch_log_metric_filter" "ConsoleLoginFailures" {
   name           = "ConsoleLoginFailures"
   log_group_name = var.cloudtrail_log_group_name
   pattern        = "{ $.eventName = \"ConsoleLogin\" && $.responseElements.ConsoleLogin = \"Failure\" }"
@@ -65,7 +65,7 @@ resource "aws_cloudwatch_log_metric_filter" "ConsoleLoginFailures" {
     value     = "1"
   }
   depends_on = [aws_cloudwatch_log_group.cloudtrail]
-}
+}*/
 
 resource "aws_cloudwatch_log_metric_filter" "ConsoleLoginSuccesses" {
   name           = "ConsoleLoginSuccesses"
@@ -80,7 +80,7 @@ resource "aws_cloudwatch_log_metric_filter" "ConsoleLoginSuccesses" {
   depends_on = [aws_cloudwatch_log_group.cloudtrail]
 }
 
-resource "aws_cloudwatch_metric_alarm" "ConsoleLoginFailuresAlarm" {
+/*resource "aws_cloudwatch_metric_alarm" "ConsoleLoginFailuresAlarm" {
   alarm_name          = "ConsoleLoginFailuresAlarm"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = 1
@@ -91,7 +91,7 @@ resource "aws_cloudwatch_metric_alarm" "ConsoleLoginFailuresAlarm" {
   threshold           = 1
   alarm_description   = "Alarm for console login failures"
   alarm_actions       = var.sns_topic_arn
-}
+}*/
 
 
 resource "aws_cloudwatch_metric_alarm" "ConsoleLoginSuccessesAlarm" {

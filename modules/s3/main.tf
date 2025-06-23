@@ -42,28 +42,28 @@ resource "aws_s3_bucket" "cloudtrail_bucket" {
 data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket_policy" "cloudtrail_bucket_policy" {
-  bucket = aws_s3_bucket.cloudtrail_bucket.bucket  # Use `.bucket` instead of `.id`
+  bucket = "demo-cloudtrail-latest-1997"
 
   policy = jsonencode({
-    Version = "2012-10-17",
+    Version = "2012-10-17"
     Statement = [
       {
-        Sid       = "AWSCloudTrailAclCheck",
-        Effect    = "Allow",
+        Sid    = "AWSCloudTrailAclCheck"
+        Effect = "Allow"
         Principal = {
           Service = "cloudtrail.amazonaws.com"
-        },
-        Action    = "s3:GetBucketAcl",
-        Resource  = "arn:aws:s3:::${aws_s3_bucket.cloudtrail_bucket.bucket}"
+        }
+        Action   = "s3:GetBucketAcl"
+        Resource = "arn:aws:s3:::demo-cloudtrail-latest-1997
       },
       {
-        Sid       = "AWSCloudTrailWrite",
-        Effect    = "Allow",
+        Sid    = "AWSCloudTrailWrite"
+        Effect = "Allow"
         Principal = {
           Service = "cloudtrail.amazonaws.com"
-        },
-        Action    = "s3:PutObject",
-        Resource  = "arn:aws:s3:::${aws_s3_bucket.cloudtrail_bucket.bucket}/AWSLogs/${data.aws_caller_identity.current.account_id}/*",
+        }
+        Action   = "s3:PutObject"
+        Resource = "arn:aws:s3:::demo-cloudtrail-latest-1997/AWSLogs/211125784755/*"
         Condition = {
           StringEquals = {
             "s3:x-amz-acl" = "bucket-owner-full-control"
