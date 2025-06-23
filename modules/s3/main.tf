@@ -54,7 +54,7 @@ resource "aws_s3_bucket_policy" "cloudtrail_bucket_policy" {
           Service = "cloudtrail.amazonaws.com"
         }
         Action   = "s3:GetBucketAcl"
-        Resource = "arn:aws:s3:::bayer-demo-cloudtrail-logs"
+        Resource = "arn:aws:s3:::demo-cloudtrail-latest-1997"
       },
       {
         Sid    = "AWSCloudTrailWrite"
@@ -63,7 +63,7 @@ resource "aws_s3_bucket_policy" "cloudtrail_bucket_policy" {
           Service = "cloudtrail.amazonaws.com"
         }
         Action   = "s3:PutObject"
-        Resource = "arn:aws:s3:::bayer-demo-cloudtrail-logs/AWSLogs/058264249757/*"
+        Resource = "arn:aws:s3:::demo-cloudtrail-latest-1997/AWSLogs/211125784755/*"
         Condition = {
           StringEquals = {
             "s3:x-amz-acl" = "bucket-owner-full-control"
