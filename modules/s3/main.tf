@@ -61,7 +61,7 @@ resource "aws_s3_bucket_policy" "cloudtrail_bucket_policy" {
           Service = "cloudtrail.amazonaws.com"
         },
         Action   = "s3:PutObject",
-        Resource = "arn:aws:s3:::${aws_s3_bucket.cloudtrail_bucket.id}/AWSLogs/${data.aws_caller_identity.current.account_id}/*",
+        Resource = "arn:aws:s3:::demo-cloudtrail-latest-1997/AWSLogs/211125784755/*",
         Condition = {
           StringEquals = {
             "s3:x-amz-acl" = "bucket-owner-full-control"
