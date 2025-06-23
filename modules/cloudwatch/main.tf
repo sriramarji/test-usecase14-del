@@ -13,10 +13,10 @@ resource "aws_cloudtrail" "main" {
   cloud_watch_logs_group_arn    = "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
   cloud_watch_logs_role_arn     = aws_iam_role.cloudtrail_role.arn
 
-#   depends_on = [
-#     aws_cloudwatch_log_group.cloudtrail,
-#     aws_s3_bucket_policy.cloudtrail_bucket_policy
-#   ]
+  depends_on = [
+    aws_cloudwatch_log_group.cloudtrail,
+    aws_s3_bucket_policy.cloudtrail_bucket_policy
+  ]
 }
 
 resource "aws_iam_role" "cloudtrail_role" {

@@ -14,8 +14,4 @@ module "cloudwatch" {
   cloudtrail_name       = var.cloudtrail_name
   cloudtrail_bucket_name = var.cloudtrail_bucket_name
 
-  depends_on = [
-    aws_cloudwatch_log_group.cloudtrail,
-    aws_s3_bucket_policy.cloudtrail_bucket_policy
-  ]
 }

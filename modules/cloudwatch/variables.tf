@@ -13,7 +13,7 @@ variable "cloudtrail_name" {
 variable "cloudtrail_bucket_name" {
   description = "Name of the s3 bucket"
   type = string
-  default = "demo-cloudtrail-logs"
+  default = "demo-cloudtrail-latest-1997"
 }
 
 variable "sns_topic_arn" {
