@@ -1,6 +1,10 @@
-module "s3" {
-  source = "./modules/s3"
-  cloudtrail_bucket_name  = var.cloudtrail_bucket_name 
+module "cloudtrail" {
+  source = "./modules/cloudtrail"
+
+  cloudtrail_bucket_name  = var.cloudtrail_bucket_name
+  cloudwatch_log_group_name = var.cloudwatch_log_group_name
+  cloudtrail_name = var.cloudtrail_name
+  log_group_name = var.log_group_name
 }
 
 module "sns" {
@@ -8,9 +12,7 @@ module "sns" {
   sns_topic_name  = var.sns_topic_name
 }
 
-module "cloudwatch" {
-  source                = "./modules/cloudwatch"
+module "cloudwatch-alarm" {
+  source                = "./modules/cloudwatch-alarm"
   sns_topic_arn         = [module.sns.sns_topic_arn]
-  cloudtrail_name       = var.cloudtrail_name
-  cloudtrail_bucket_name = var.cloudtrail_bucket_name
 }
